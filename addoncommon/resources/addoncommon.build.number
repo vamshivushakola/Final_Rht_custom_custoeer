@@ -1,0 +1,9 @@
+#Ant properties
+#Thu Jul 10 18:38:19 CEST 2014
+builddate=20140710 1837
+description=addoncommon
+name=addoncommon
+releasedate=20140618 1115
+vendor=hybris
+version=5.2.0.0
+version.api=5.2.0

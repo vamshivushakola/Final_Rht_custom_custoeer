@@ -1,0 +1,96 @@
+# ImpEx for Importing Products
+
+# Macros / Replacement Parameter definitions
+$productCatalog=asianpaintsProductCatalog
+$productCatalogName=Asianpaints Product Catalog
+
+$catalogVersion=catalogversion(catalog(id[default=$productCatalog]),version[default='Staged'])[unique=true,default=$productCatalog:Staged]
+$supercategories=supercategories(code, $catalogVersion)
+$baseProduct=baseProduct(code,$catalogVersion)
+$approved=approvalstatus(code)[default='approved']
+
+# Insert Products
+INSERT_UPDATE Product;code[unique=true];$supercategories;manufacturerName;manufacturerAID;unit(code);ean;variantType(code);iscomingSoon[default='false'];$catalogVersion;$approved
+;00001;101, brand_5;Asianpaints;brush1;pieces;;;
+;00002;102, brand_5;Asianpaints;brush2;pieces;;;
+;00003;201, brand_5;Asianpaints;paint1;pieces;;AsianpaintsStyleVariantProduct;
+;00004;201, brand_5;Asianpaints;paint2;pieces;;AsianpaintsStyleVariantProduct;
+;00005;201, brand_5;Asianpaints;Apcolite_Advanced;pieces;;AsianpaintsSizeVariantProduct;
+;00006;201, brand_5;Asianpaints;Apcolite_Premium_Emulsion;pieces;;;
+;00007;201, brand_5;Asianpaints;Royale_Shyne;pieces;;AsianpaintsStyleVariantProduct;
+;00008;201, brand_5;Asianpaints;Tractor_Emulsion;pieces;;;
+;00009;202, brand_5;Asianpaints;Ace_Emulsion;pieces;;;
+;00010;202, brand_5;Asianpaints;Apex_Exterior_Emulsion;pieces;;;
+;00011;202, brand_5;Asianpaints;Apex_Ultima;pieces;;AsianpaintsStyleVariantProduct;
+
+;00012;202, brand_5;Asianpaints;Luxury_Wood;pieces;;;
+;00013;202, brand_5;Asianpaints;Ultimatecoat;pieces;;;
+
+;00014;102, brand_5;Asianpaints;core_paint_roller;pieces;;;
+;00015;102, brand_5;Asianpaints;Decorative_b_font_Empaistic_Pattern_roller;pieces;;;
+;00016;102, brand_5;Asianpaints;Flower_EmbossedPaint_font_b_Roller;pieces;;;
+;00017;101, brand_5;Asianpaints;Royale_Brush_950;pieces;;;
+;00018;102, brand_5;Asianpaints;Royale_Roller_950;pieces;;;
+;00019;101, brand_5;Asianpaints;Royale_Thick_Brush_980;pieces;;;
+;00020;101, brand_5;Asianpaints;Smartcare_All_Surface_Brush_320;pieces;;;
+;00021;102, brand_5;Asianpaints;Smartcare_All_Surface_Roller_350;pieces;;;
+;00022;101, brand_5;Asianpaints;Smartcare_Exterior_Brush_580;pieces;;;
+;00023;102, brand_5;Asianpaints;Smartcare_Exterior_Roller_650;pieces;;;
+
+##comingsoon
+;24;201, brand_5;Asianpaints;Apex_Tile_Guard;pieces;;;true
+;25;202, brand_5;Asianpaints;Ace_Emulsion_Climate;pieces;;;true
+
+
+# Create AsianpaintsStyleVariantProduct variants
+INSERT_UPDATE AsianpaintsStyleVariantProduct;code[unique=true];$catalogVersion;$baseProduct;supercategories(code,$catalogVersion);swatchColors(code);unit(code)[default='pieces'];varianttype(code);$approved
+
+;B00003;;00003;201, brand_5;BLUE;;AsianpaintsSizeVariantProduct
+;R00003;;00003;201, brand_5;RED;;AsianpaintsSizeVariantProduct
+;G00003;;00003;201, brand_5;GREEN;;AsianpaintsSizeVariantProduct
+;B00004;;00004;201, brand_5;BLUE;;AsianpaintsSizeVariantProduct
+;R00004;;00004;201, brand_5;RED;;AsianpaintsSizeVariantProduct
+;G00004;;00004;201, brand_5;GREEN;;AsianpaintsSizeVariantProduct
+;B00007;;00007;201, brand_5;BLUE;;AsianpaintsSizeVariantProduct
+;R00007;;00007;201, brand_5;RED;;AsianpaintsSizeVariantProduct
+;G00007;;00007;201, brand_5;GREEN;;AsianpaintsSizeVariantProduct
+
+;B00011;;00011;202, brand_5;BLUE;;AsianpaintsSizeVariantProduct
+;R00011;;00011;202, brand_5;RED;;AsianpaintsSizeVariantProduct
+;G00011;;00011;202, brand_5;GREEN;;AsianpaintsSizeVariantProduct
+
+# Create AsianpaintsSizeVariantProduct variants
+INSERT_UPDATE AsianpaintsSizeVariantProduct;code[unique=true];$catalogVersion;$baseProduct;supercategories(code,$catalogVersion);unit(code)[default='pieces'];manufacturerName;extras;$approved
+;B00003_M;;B00003;201, brand_5;;;Gloves,Cleaner,Scratch Remover,Brush Solvent
+;B00003_L;;B00003;201, brand_5;;asianpaints;Gloves,Cleaner,Scratch Remover,Brush Solvent
+;R00003_M;;R00003;201, brand_5;;;Gloves,Cleaner,Scratch Remover,Brush Solvent
+;R00003_L;;R00003;201, brand_5;;;Gloves,Cleaner,Scratch Remover,Brush Solvent
+;G00003_M;;G00003;201, brand_5;;;Gloves,Cleaner,Scratch Remover,Brush Solvent
+;G00003_L;;G00003;201, brand_5;;;Gloves,Cleaner,Scratch Remover,Brush Solvent
+;B00004_M;;B00004;201, brand_5;;;Gloves,Cleaner,Scratch Remover,Brush Solvent
+;B00004_L;;B00004;201, brand_5;;asianpaints;Gloves,Cleaner,Scratch Remover,Brush Solvent
+;R00004_M;;R00004;201, brand_5;;;Gloves,Cleaner,Scratch Remover,Brush Solvent
+;R00004_L;;R00004;201, brand_5;;;Gloves,Cleaner,Scratch Remover,Brush Solvent
+;G00004_M;;G00004;201, brand_5;;;Gloves,Cleaner,Scratch Remover,Brush Solvent
+;G00004_L;;G00004;201, brand_5;;;Gloves,Cleaner,Scratch Remover,Brush Solvent
+;B00007_M;;B00007;201, brand_5;;;Gloves,Cleaner,Scratch Remover,Brush Solvent
+;B00007_L;;B00007;201, brand_5;;;Gloves,Cleaner,Scratch Remover,Brush Solvent
+;R00007_M;;R00007;201, brand_5;;asianpaints;Gloves,Cleaner,Scratch Remover,Brush Solvent
+;R00007_L;;R00007;201, brand_5;;;Gloves,Cleaner,Scratch Remover,Brush Solvent
+;G00007_M;;G00007;201, brand_5;;;Gloves,Cleaner,Scratch Remover,Brush Solvent
+;G00007_L;;G00007;201, brand_5;;;Gloves,Cleaner,Scratch Remover,Brush Solvent
+;B00011_M;;B00011;202, brand_5;;;
+;B00011_L;;B00011;202, brand_5;;;
+;R00011_M;;R00011;202, brand_5;;;
+;R00011_L;;R00011;202, brand_5;;;
+;G00011_M;;G00011;202, brand_5;;asianpaints;
+;G00011_L;;G00011;202, brand_5;;;
+
+;00005_M;;00005;201, brand_5;;asianpaints;Gloves,Cleaner,Scratch Remover,Brush Solvent
+;00005_L;;00005;201, brand_5;;;Gloves,Cleaner,Scratch Remover,Brush Solvent
+
+
+
+
+
+

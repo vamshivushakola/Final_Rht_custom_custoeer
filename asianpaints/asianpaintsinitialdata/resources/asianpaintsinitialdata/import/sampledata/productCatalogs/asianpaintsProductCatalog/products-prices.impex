@@ -1,0 +1,219 @@
+# ImpEx for Importing Prices
+
+# Macros / Replacement Parameter definitions
+$productCatalog=asianpaintsProductCatalog
+
+$catalogVersion=catalogversion(catalog(id[default=$productCatalog]),version[default='Staged'])[unique=true,default='$productCatalog:Staged']
+$prices=Europe1prices[translator=de.hybris.platform.europe1.jalo.impex.Europe1PricesTranslator]
+$taxGroup=Europe1PriceFactory_PTG(code)[default=jp-vat-full]
+
+# Set product approval status to Approved only for those products that have prices.
+$approved=approvalstatus(code)[default='approved']
+
+UPDATE Product;code[unique=true];$approved;$catalogVersion;$taxGroup[default=jp-vat-full]
+ ;00001
+ ;00002
+ 
+ ;00003
+ ;B00003
+ ;R00003
+ ;G00003
+ ;B00003_M
+ ;B00003_L
+ ;R00003_M
+ ;R00003_L
+ ;G00003_M
+ ;G00003_L
+   
+ ;00004
+ ;B00004
+ ;R00004
+ ;G00004
+ ;B00004_M
+ ;B00004_L
+ ;R00004_M
+ ;R00004_L
+ ;G00004_M
+ ;G00004_L
+  
+ ;00005
+ ;00005_M
+ ;00005_L
+
+ ;00006
+ ;00007
+ ;B00007
+ ;R00007
+ ;G00007
+ ;B00007_M
+ ;B00007_L
+ ;R00007_M
+ ;R00007_L
+ ;G00007_M
+ ;G00007_L
+ 
+ ;00008
+ ;00009
+ ;00010
+ ;00011
+ ;B00011
+ ;R00011
+ ;G00011
+ ;B00011_M
+ ;B00011_L
+ ;R00011_M
+ ;R00011_L
+ ;G00011_M
+ ;G00011_L
+ 
+ ;00012
+ ;00013
+ ;00014
+ ;00015
+ ;00016
+ ;00017
+ ;00018
+ ;00019
+ ;00020
+ ;00021
+ ;00022
+ ;00023
+ 
+ INSERT_UPDATE PriceRow;productId[unique=true];unit(code[unique=true,default=pieces]);currency(isocode)[unique=true];price;minqtd;unitFactor;net
+;00001;pieces;USD;15.99;1;1;false
+;00001;pieces;JPY;15330;1;1;false
+;00002;pieces;USD;17.56;1;1;false
+;00002;pieces;JPY;7400;1;1;false
+
+;00003;pieces;USD;106.93;1;1;false
+;B00003;pieces;USD;106.93;1;1;false
+;R00003;pieces;USD;106.93;1;1;false
+;G00003;pieces;USD;106.93;1;1;false
+;B00003_M;pieces;USD;106.93;1;1;false
+;B00003_L;pieces;USD;116.93;1;1;false
+;R00003_M;pieces;USD;106.93;1;1;false
+;R00003_L;pieces;USD;116.93;1;1;false
+;G00003_M;pieces;USD;106.93;1;1;false
+;G00003_L;pieces;USD;116.93;1;1;false
+
+;00003;pieces;JPY;15330;1;1;false
+;B00003;pieces;JPY;15330;1;1;false
+;R00003;pieces;JPY;15330;1;1;false
+;G00003;pieces;JPY;15330;1;1;false
+;B00003_M;pieces;JPY;15330;1;1;false
+;B00003_L;pieces;JPY;15330;1;1;false
+;R00003_M;pieces;JPY;15330;1;1;false
+;R00003_L;pieces;JPY;15330;1;1;false
+;G00003_M;pieces;JPY;15330;1;1;false
+;G00003_L;pieces;JPY;15330;1;1;false
+
+;00004;pieces;USD;86.86;1;1;false
+;B00004;pieces;USD;86.86;1;1;false
+;R00004;pieces;USD;86.86;1;1;false
+;G00004;pieces;USD;86.86;1;1;false
+;B00004_M;pieces;USD;86.86;1;1;false
+;B00004_L;pieces;USD;96.86;1;1;false
+;R00004_M;pieces;USD;86.86;1;1;false
+;R00004_L;pieces;USD;96.86;1;1;false
+;G00004_M;pieces;USD;86.86;1;1;false
+;G00004_L;pieces;USD;96.86;1;1;false
+
+;00004;pieces;JPY;7400;1;1;false
+;B00004;pieces;JPY;7400;1;1;false
+;R00004;pieces;JPY;7400;1;1;false
+;G00004;pieces;JPY;7400;1;1;false
+;B00004_M;pieces;JPY;7400;1;1;false
+;B00004_L;pieces;JPY;7400;1;1;false
+;R00004_M;pieces;JPY;7400;1;1;false
+;R00004_L;pieces;JPY;7400;1;1;false
+;G00004_M;pieces;JPY;7400;1;1;false
+;G00004_L;pieces;JPY;7400;1;1;false
+
+;00005;pieces;USD;50.93;1;1;false
+;00005_M;pieces;USD;50.93;1;1;false
+;00005_L;pieces;USD;60.93;1;1;false
+
+;00005;pieces;JPY;15330;1;1;false
+;00005_M;pieces;JPY;15330;1;1;false
+;00005_L;pieces;JPY;15330;1;1;false
+
+;00006;pieces;USD;89.86;1;1;false
+;00006;pieces;JPY;7400;1;1;false
+
+;00007;pieces;USD;120.4;1;1;false
+;B00007;pieces;USD;120.4;1;1;false
+;R00007;pieces;USD;120.4;1;1;false
+;G00007;pieces;USD;120.4;1;1;false
+;B00007_M;pieces;USD;120.4;1;1;false
+;B00007_L;pieces;USD;130.4;1;1;false
+;R00007_M;pieces;USD;120.4;1;1;false
+;R00007_L;pieces;USD;130.4;1;1;false
+;G00007_M;pieces;USD;120.4;1;1;false
+;G00007_L;pieces;USD;130.4;1;1;false
+
+;00007;pieces;JPY;15330;1;1;false
+;B00007;pieces;JPY;15330;1;1;false
+;R00007;pieces;JPY;15330;1;1;false
+;G00007;pieces;JPY;15330;1;1;false
+;B00007_M;pieces;JPY;15330;1;1;false
+;B00007_L;pieces;JPY;15330;1;1;false
+;R00007_M;pieces;JPY;15330;1;1;false
+;R00007_L;pieces;JPY;15330;1;1;false
+;G00007_M;pieces;JPY;15330;1;1;false
+;G00007_L;pieces;JPY;15330;1;1;false
+
+;00008;pieces;USD;73.5;1;1;false
+;00008;pieces;JPY;7400;1;1;false
+;00009;pieces;USD;93.9;1;1;false
+;00009;pieces;JPY;7400;1;1;false
+;00010;pieces;USD;103.2;1;1;false
+;00010;pieces;JPY;15330;1;1;false
+
+;00011;pieces;USD;149.9;1;1;false
+;B00011;pieces;USD;149.9;1;1;false
+;R00011;pieces;USD;149.9;1;1;false
+;G00011;pieces;USD;149.9;1;1;false
+;B00011_M;pieces;USD;149.9;1;1;false
+;B00011_L;pieces;USD;159.9;1;1;false
+;R00011_M;pieces;USD;149.9;1;1;false
+;R00011_L;pieces;USD;159.9;1;1;false
+;G00011_M;pieces;USD;149.9;1;1;false
+;G00011_L;pieces;USD;159.9;1;1;false
+
+;00011;pieces;JPY;7400;1;1;false
+;B00011;pieces;JPY;7400;1;1;false
+;R00011;pieces;JPY;7400;1;1;false
+;G00011;pieces;JPY;7400;1;1;false
+;B00011_M;pieces;JPY;7400;1;1;false
+;B00011_L;pieces;JPY;7400;1;1;false
+;R00011_M;pieces;JPY;7400;1;1;false
+;R00011_L;pieces;JPY;7400;1;1;false
+;G00011_M;pieces;JPY;7400;1;1;false
+;G00011_L;pieces;JPY;7400;1;1;false
+
+;00012;pieces;USD;139.4;1;1;false
+;00012;pieces;JPY;15330;1;1;false
+;00013;pieces;USD;95.8;1;1;false
+;00013;pieces;JPY;7400;1;1;false
+;00014;pieces;USD;14.99;1;1;false
+;00014;pieces;JPY;15330;1;1;false
+;00015;pieces;USD;39.6;1;1;false
+;00015;pieces;JPY;7400;1;1;false
+;00016;pieces;USD;48.5;1;1;false
+;00016;pieces;JPY;15330;1;1;false
+;00017;pieces;USD;28.4;1;1;false
+;00017;pieces;JPY;7400;1;1;false
+;00018;pieces;USD;23.1;1;1;false
+;00018;pieces;JPY;15330;1;1;false
+;00019;pieces;USD;20.9;1;1;false
+;00019;pieces;JPY;7400;1;1;false
+;00020;pieces;USD;29.3;1;1;false
+;00020;pieces;JPY;15330;1;1;false
+;00021;pieces;USD;22.6;1;1;false
+;00021;pieces;JPY;7400;1;1;false
+;00022;pieces;USD;21.9;1;1;false
+;00022;pieces;JPY;21.9;1;1;false
+;00023;pieces;USD;23.6;1;1;false
+;00023;pieces;JPY;23.6;1;1;false
+
+

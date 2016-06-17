@@ -1,0 +1,22 @@
+# ImpEx for Importing Categories
+
+# Macros / Replacement Parameter definitions
+$productCatalog=asianpaintsProductCatalog
+$productCatalogName=Asianpaints Product Catalog
+
+$catalogVersion=catalogversion(catalog(id[default=$productCatalog]),version[default='Staged'])[unique=true,default=$productCatalog:Staged]
+
+
+# Language
+$lang=en
+
+# Create Categories
+UPDATE Category;code[unique=true];$catalogVersion;name[lang=$lang]
+ ;1;;Open Catalogue;
+ ;100;;Paints Aid;
+ ;200;;Paints;
+ ;101;;brush 1;
+ ;102;;brush 2;
+ ;201;;paint 1;
+ ;202;;paint 2;
+ 

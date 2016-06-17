@@ -1,0 +1,11 @@
+#Fri, 30 Aug 2013 16:56:12 +0100
+#Ant properties
+#Fri Aug 30 16:56:12 BST 2013
+builddate=20130830 1656
+description=vivocha
+name=vivocha
+releasedate=20130606 1500
+revision=50257
+svnurl=https\://hypsrepo.hybris.de/psrepo/salesdemo/5showcase/trunk/bin/addons/addon-social/vivocha
+vendor=hybris
+version=5.0.1.0
